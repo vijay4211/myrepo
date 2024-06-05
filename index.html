@@ -6,6 +6,564 @@
     <title>Document</title>
 </head>
 <body>
-    <h4>This is V5</h4>
+    
 </body>
 </html>
+<script>
+
+const products = [
+    { id: 1, name: 'Laptop', price: 569.68 },  //0th index
+    { id: 2, name: 'Smartphone', price: 235.48 }, //1st index
+    { id: 3, name: 'Tablet', price: 130.42 },  //2nd index
+    { id: 4, name: 'Samsung', price: 156.12 }, //3rd index
+    { id: 4, name: 'Vivo', price: 139.65 },  //4th index
+    { id: 5, name: 'Oppo', price: 635.76 },  //5th index
+    { id: 6, name: 'Apple', price: 456.56 },  //6th index
+];
+
+// console.log(products);
+
+// =======================================Map=================================
+//The map method creates a new array by applying a function to each element of the array.
+//===========1st way
+// const productNames = products.map(product => product.name);
+// console.log(productNames); 
+// Output: ['Laptop', 'Smartphone', 'Tablet']
+
+//===========2nd way
+// const productNames = products.map(
+//     (product)=>(
+//         product.name
+//     )
+// )
+// console.log(productNames);
+// Output: ['Laptop', 'Smartphone', 'Tablet']
+
+//============3rd way
+// const productNames = products.map(
+//     function(product){
+//         return product.name;
+//     }
+// )
+// console.log(productNames);
+// Output: ['Laptop', 'Smartphone', 'Tablet']
+
+
+//==================================================forEach=========================
+//The forEach method executes a provided function once for each array element.
+
+// const productNames = products.forEach(
+//     (product)=>(
+//     product.name
+//     )
+// )
+// console.log(productNames); //undefined
+
+
+
+// const productNames = products.forEach(
+//     function(product){
+//      return product.name
+//     }
+// )
+// console.log(productNames); //undefined
+
+
+
+// const productNames = products.forEach(
+//     (product)=>(
+//     console.log(product.name) // Laptop  Smartphone  Tablet  Samsung  Vivo  Oppo  Apple
+//     )
+// )
+
+
+
+// const productNames = products.forEach(
+//     (product)=>{
+//      console.log( product.name); // Laptop  Smartphone  Tablet  Samsung  Vivo  Oppo  Apple
+//     }
+// )
+
+
+
+// const productNames = products.forEach(
+//     (product)=>{
+//      return product.name; // Laptop  Smartphone  Tablet  Samsung  Vivo  Oppo  Apple
+//     }
+// )
+// console.log(productNames); //undefined
+
+
+// const productNames = products.forEach(
+//     function(product){
+//     console.log(product.name); //Laptop  Smartphone  Tablet  Samsung  Vivo  Oppo  Apple
+//     }
+// )
+// console.log(productNames); //undefined
+
+
+
+//==================================================Filter=========================
+//The filter method creates a new array with all elements that pass the test implemented by the provided function.
+
+// const productNames = products.filter(
+//     (product)=>{
+//        return product.price > 500;
+//     }
+// )
+// console.log(productNames); // {id: 1, name: 'Laptop', price: 569.68}, {id: 5, name: 'Oppo', price: 635.76}
+
+
+// const productNames = products.filter(
+//     (product)=>(
+//        product.price > 500
+//     )
+// )
+// console.log(productNames); // {id: 1, name: 'Laptop', price: 569.68}, {id: 5, name: 'Oppo', price: 635.76}
+
+
+// const productNames = products.filter(
+//     (product)=>{
+//         console.log(product.price > 500); //show true and false
+//     }
+// )
+
+
+// const productNames = products.filter(
+//     (product)=>(
+//         console.log(product.price > 500) //show true and false
+//     )
+// )
+
+
+
+//==================================================reduce=========================
+//The reduce method executes a reducer function on each element of the array, resulting in a single output value.
+
+// const productNames = products.reduce(
+//     (total, product)=> total + product.price, 0  
+// )
+// console.log(productNames); //2323.67
+
+
+// const productNames = products.reduce(
+//     (total, product)=>{
+//       return total + product.price, 0
+//     }
+// )
+// console.log(productNames); //undefined  
+
+
+// const productNames = products.reduce(
+//     (total, product)=>(
+//        total + product.price, 0
+//     )   
+// )
+// console.log(productNames); //0
+
+
+// const productNames = products.reduce(
+//     (total, product)=>(
+//        return total + product.price, 0
+//     )   
+// )
+// console.log(productNames); //SyntaxError: Unexpected token 'return'
+
+
+
+//==================================================find=========================
+
+// const productNames = products.find(
+//     (product)=>(
+//         product.id == 2 //don't use semicolon
+//     )
+// )
+// console.log(productNames); //{id: 2, name: 'Smartphone', price: 235.48}
+
+
+// const productNames = products.find(
+//     (product)=>{
+//        return product.id == 2 //don't use semicolon
+//     }
+// )
+// console.log(productNames); //{id: 2, name: 'Smartphone', price: 235.48}
+
+
+// const productNames = products.find(
+//     (product)=>{
+//        product.id == 2 //don't use semicolon
+//     }
+// )
+// console.log(productNames); //undefined
+
+
+// const productNames = products.find(
+//     function(product){
+//        return product.id == 2 //don't use semicolon
+//     }
+// )
+// console.log(productNames); //{id: 2, name: 'Smartphone', price: 235.48}
+
+
+
+// const productNames = products.find(
+//     function(product){
+//        console.log( product.id == 2); //show true and false
+//     }
+// )
+// console.log(productNames); //undefined
+
+
+
+//==================================================some=========================
+// The some method tests whether "at least one element in the array" passes the test implemented by the provided function.
+
+// const productNames = products.some(
+//     (product)=>(
+//         product.price >300 //don't use semicolon
+//     )
+// )
+// console.log(productNames); //true
+
+
+// const productNames = products.some(
+//     (product)=>{
+//       return  product.price >300 //don't use semicolon
+//     }
+// )
+// console.log(productNames); //true
+
+
+// const productNames = products.some(
+//     function(product){
+//       return  product.price >300 //don't use semicolon
+//     }
+// )
+// console.log(productNames); //true
+
+
+// const productNames = products.some(
+//     function(product)=>{
+//       return  product.price >300 //don't use semicolon
+//     }
+// )
+// console.log(productNames); //SyntaxError: Unexpected token '=>'
+
+
+// const productNames = products.some(
+//     function(product){
+//         product.price >300 //don't use semicolon
+//     }
+// )
+// console.log(productNames); //false
+
+
+
+//==================================================every=========================
+//The every method tests whether "all elements in the array" pass the test implemented by the provided function.
+
+// const productNames = products.every(
+//     (product)=>(
+//         product.item > 500
+//     )
+// )
+// console.log(productNames); //false
+
+
+// const productNames = products.every(
+//     (product)=>{
+//         product.item > 500
+//     }
+// )
+// console.log(productNames); //false
+
+
+// const productNames = products.every(
+//     function(product){
+//        return product.item > 500
+//     }
+// )
+// console.log(productNames); //false
+
+
+//==================================================sort=========================
+//The sort method sorts the elements of an array in place and returns the array.
+
+// const productNames = products.slice().sort(
+//     (a, b)=>(
+//         a.price - b.price
+//     )
+// )
+// console.log(productNames); //lower to upper
+
+
+// const productNames = products.slice().sort(
+//     (a, b)=>{
+//        return a.price - b.price
+//     }
+// )
+// console.log(productNames); //lower to upper
+
+
+// const productNames = products.slice().sort(
+//     function(a, b){
+//        return a.price - b.price
+//     }
+// )
+// console.log(productNames); //lower to upper
+
+
+// const productNames = products.sort(
+//     (a, b)=>(
+//         a.price - b.price
+//     )
+// )
+// console.log(productNames); //lower to upper
+
+
+//==================================================for Loop=========================
+//A traditional for loop can also be used to iterate over the array.
+
+// for(let i=0; i<=products.length; i++){
+//    console.log(products[i]); //show product list in object 
+// }
+
+
+// for(let i=0; i<=products.length; i++){
+//    console.log(products[i].name); //show product name list
+// }
+
+
+//don't do like this========
+// for(let i=0; i<=products.length; i++)=>(
+//     console.log(products[i]); //SyntaxError: Unexpected token '=>'
+// )
+
+
+//==================================================for of loop=========================
+//The for...of loop creates a loop iterating over iterable objects, including arrays.
+
+// for(const product of products){
+//     console.log(product.name); //show product name list
+// }
+
+
+//==================================================findIndex=========================
+//The findIndex method returns the index of the "first element" in the array that satisfies the provided testing function.
+
+// const productNames = products.findIndex(
+//     (product)=>(
+//         product.id == 1 // 0th index
+//     )
+// )
+// console.log(productNames); // 0
+
+
+// const productNames = products.findIndex(
+//     (product)=>{
+//         return product.id == 1 // 0th index
+//     }
+// )
+// console.log(productNames); //0
+
+
+// const productNames = products.findIndex(
+//     function(product){
+//         return product.id == 1 // 0th index
+//     }
+// )
+// console.log(productNames); //0
+
+
+
+
+//==================================================includes=========================
+//To use includes, you need an array of primitive values like product names.
+
+
+// const productNames = products.map(
+//     (product)=>(
+//         product.name
+//     )
+// )
+// console.log(productNames); //show product name list
+
+// const useIncludes = productNames.includes("Laptop");
+// console.log(useIncludes); //true
+
+//=====code not correct
+// const productNames = products.includes("Laptop");
+// console.log(productNames); //false
+
+
+//==================================================concat=========================
+//The concat method is used to merge two or more arrays.
+
+// const newProducts = [
+//     { id: 4, name: 'Monitor', price: 199.99 },
+//     { id: 5, name: 'Keyboard', price: 49.99 }
+// ];
+
+// const productNames = products.concat(newProducts);
+// console.log(productNames); //show newProducts with productName list in object
+
+
+//==================================================keys=========================
+//The keys method returns a new Array Iterator object that contains the keys for each index in the array.
+
+// const productName = products.keys();
+// for(const i of productName){
+//     console.log(i); // 0 to 6
+// }
+
+
+
+//==================================================values=========================
+//The values method returns a new Array Iterator object that contains the values for each index in the array.
+
+// const productName = products.values();
+// for(const i of productName){
+//     console.log(i); //show the product object list
+// }
+
+
+
+//==================================================entries=========================
+//The entries method returns a new Array Iterator object that contains the key/value pairs for each index in the array.
+
+// const productName = products.entries();
+// for(const[index, product] of productName){
+//     console.log(index, product); //show the product object list
+// }
+
+
+
+//===============Slice and Splice Method============================
+
+//slice Method=========
+//The slice method returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included). The original array will not be modified.
+
+// const fruits = ["Apple", "Banana", "Cherry", "Date", "Elderberry"];
+
+// const slicedFruits = fruits.slice(1, 4);
+// console.log(slicedFruits); // Output: ["Banana", "Cherry", "Date"]
+// console.log(fruits);       // Output: ["Apple", "Banana", "Cherry", "Date", "Elderberry"]
+
+//slice(1, 4) creates a new array from index 1 to index 3 (index 4 is not included).
+//The original fruits array remains unchanged.
+
+
+//splice Method=========
+//The splice method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place. This method modifies the original array.
+
+// const fruits = ["Apple", "Banana", "Cherry", "Date", "Elderberry"];
+
+// const removedFruits = fruits.splice(2, 2);
+// console.log(removedFruits); // Output: ["Cherry", "Date"]
+// console.log(fruits);        // Output: ["Apple", "Banana", "Elderberry"]
+
+//* splice(2, 2) removes 2 elements starting from index 2
+//* The original fruits array is modified, and the removed elements are returned.
+
+
+//Example 2: Adding elements============
+
+// const fruits = ["Apple", "Banana", "Cherry", "Date", "Elderberry"];
+
+// fruits.splice(2, 0, "Fig", "Grapes");
+// console.log(fruits); // Output: ["Apple", "Banana", "Fig", "Grapes", "Cherry", "Date", "Elderberry"]
+
+//* splice(2, 0, "Fig", "Grapes") adds "Fig" and "Grapes" at index 2 without removing any elements (second argument is 0).
+//* The original fruits array is modified to include the new elements.
+
+
+//Example 3: Replacing elements==========
+
+// const fruits = ["Apple", "Banana", "Cherry", "Date", "Elderberry"];
+
+// const replacedFruits = fruits.splice(1, 2, "Blackberry", "Blueberry");
+// console.log(replacedFruits); // Output: ["Banana", "Cherry"]
+// console.log(fruits);         // Output: ["Apple", "Blackberry", "Blueberry", "Date", "Elderberry"]
+
+//splice(1, 2, "Blackberry", "Blueberry") removes 2 elements starting from index 1 and adds "Blackberry" and "Blueberry" at index 1.
+//The original fruits array is modified to include the new elements and exclude the removed ones.
+
+
+//Summery=========
+//slice(start, end): Returns a new array containing elements from start to end - 1. Does not modify the original array.
+//splice(start, deleteCount, item1, item2, ...): Modifies the original array by removing deleteCount elements starting from start and optionally adding item1, item2, etc., at the same position.
+
+
+
+
+//===============shift and unshift Method============================
+
+//shift Method================
+//The shift method removes the first element from an array and returns that removed element. This method changes the length of the array.
+
+// const fruits = ["Apple", "Banana", "Cherry", "Date"];
+
+// const removedFruit = fruits.shift();
+// console.log(removedFruit); // Output: "Apple"
+// console.log(fruits);       // Output: ["Banana", "Cherry", "Date"]
+
+//* shift() removes the first element ("Apple") from the fruits array.
+//* The original fruits array is modified, and the removed element is returned.
+
+
+//unshift Method==============
+//The unshift method adds one or more elements to the beginning of an array and returns the new length of the array. This method changes the length of the array.
+
+// const fruits = ["Banana", "Cherry", "Date"];
+
+// const newLength = fruits.unshift("Apple");
+// console.log(newLength); // Output: 4
+// console.log(fruits);    // Output: ["Apple", "Banana", "Cherry", "Date"]
+
+//* unshift("Apple") adds "Apple" to the beginning of the fruits array.
+//* The original fruits array is modified, and the new length of the array is returned.
+
+//Summary============
+//* shift(): Removes the first element of an array, modifies the original array, and returns the removed element.
+//* unshift(element1, element2, ...): Adds one or more elements to the beginning of an array, modifies the original array, and returns the new length of the array.
+
+
+
+//===============pop and push Method==================================
+
+//pop Method=============
+//The pop method removes the last element from an array and returns that removed element. This method changes the length of the array.
+
+// const fruits = ["Apple", "Banana", "Cherry", "Date"];
+
+// const removedFruit = fruits.pop();
+// console.log(removedFruit); // Output: "Date"
+// console.log(fruits);       // Output: ["Apple", "Banana", "Cherry"]
+
+//* pop() removes the last element ("Date") from the fruits array.
+//* The original fruits array is modified, and the removed element is returned.
+
+
+//push Method=============
+//The push method adds one or more elements to the end of an array and returns the new length of the array. This method changes the length of the array.
+
+// const fruits = ["Apple", "Banana", "Cherry"];
+
+// const newLength = fruits.push("Date");
+// console.log(newLength); // Output: 4
+// console.log(fruits);    // Output: ["Apple", "Banana", "Cherry", "Date"]
+
+//* push("Date") adds "Date" to the end of the fruits array.
+//* The original fruits array is modified, and the new length of the array is returned.
+
+
+//Summary=========
+//* pop(): Removes the "last element" of an array, modifies the original array, and returns the removed element.
+//* push(element1, element2, ...): Adds one or more elements to the "end" of an array, modifies the original array, and returns the new length of the array.
+
+
+
+
+
+
+</script>
